@@ -19,7 +19,7 @@
 - `2 Tbsp olive oil`
 - `1 Tbsp Dijon mustard`
 - `1 Tbsp honey`
-- `1 tsp salt`
+- `1 Tsp salt`
 - `1/2 tsp pepper`
 
 ## Instructions
