@@ -1,4 +1,4 @@
-# Garlic-Vinegar Dipping Sauce
+# Garlic Vinegar Dipping Sauce
 makes 1/2 cup
 ## Ingredients
 

@@ -8,7 +8,7 @@
 - `1 bunch asparagus` cut into 2 in pieces diagonally
 - `1/2 small red apple` thinly sliced
 - `2 Tbsp basil` finely chopped
--  `1 scallion` finely chopped
+- `1 scallion` finely chopped
 - `1 Tbsp cilantro` finely chopped
 - `1 Tbsp parsley` finely
 - `1/4 cup feta` crumbled

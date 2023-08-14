@@ -9,6 +9,9 @@ struct RecipeTemplate<'a> {
     markdown: &'a str,
 }
 fn main() {
+    if !fs::metadata("./built").is_ok() {
+        fs::create_dir("./built").expect("Failed to create built directory");
+    }
     compile_recipes("./recipes");
     copy_assets();
 }
