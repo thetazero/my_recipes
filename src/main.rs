@@ -1,13 +1,8 @@
-use askama::Template;
 use comrak::{markdown_to_html, ComrakOptions};
-use std::fs; // bring trait in scope
+use std::{fs, path::PathBuf}; // bring trait in scope
 
-#[derive(Template)] // this will generate the code...
-#[template(path = "recipe.html", escape = "none")] // using the template in this path, relative
-struct RecipeTemplate<'a> {
-    name: &'a str,
-    markdown: &'a str,
-}
+pub mod templates;
+use templates::{IndexTemplate, Recipe, RecipeTemplate};
 fn main() {
     if !fs::metadata("./built").is_ok() {
         fs::create_dir("./built").expect("Failed to create built directory");
@@ -18,24 +13,42 @@ fn main() {
 
 fn compile_recipes(path: &str) {
     let paths = fs::read_dir(path).unwrap();
+    let mut recipe_list: Vec<Recipe> = Vec::new();
     for path in paths {
         let path = path.unwrap().path();
-        let content = fs::read_to_string(&path).unwrap();
-        let markdown = markdown_to_html(&content, &ComrakOptions::default());
+        let recipe = compile_recipe(path);
 
-        let recipe_name = path.file_name().unwrap().to_str().unwrap();
-        let nice_name = procees_title_string(recipe_name);
+        recipe_list.push(recipe);
+    }
 
-        let rendered_page = RecipeTemplate {
-            name: &nice_name,
-            markdown: &markdown,
-        }
-        .to_string();
-        fs::write(
-            "./built/".to_owned() + recipe_name + ".html",
-            &rendered_page,
-        )
-        .unwrap();
+    let rendered_index = IndexTemplate {
+        recipes: recipe_list,
+    }
+    .to_string();
+    fs::write("./built/index.html", &rendered_index).unwrap();
+}
+
+fn compile_recipe(path: PathBuf) -> Recipe {
+    let content = fs::read_to_string(&path).unwrap();
+    let markdown = markdown_to_html(&content, &ComrakOptions::default());
+
+    let recipe_name = path.file_name().unwrap().to_str().unwrap();
+    let nice_name = procees_title_string(recipe_name);
+
+    let rendered_page = RecipeTemplate {
+        name: &nice_name,
+        markdown: &markdown,
+    }
+    .to_string();
+    fs::write(
+        "./built/".to_owned() + recipe_name + ".html",
+        &rendered_page,
+    )
+    .unwrap();
+
+    Recipe {
+        name: nice_name,
+        path: recipe_name.to_owned() + ".html",
     }
 }
 
@@ -51,7 +64,7 @@ fn copy_assets() {
 fn procees_title_string(title: &str) -> String {
     let mut result = String::new();
     result.push_str(&title[0..1].to_uppercase());
-    for c in title[1..].chars(){
+    for c in title[1..].chars() {
         match c {
             '_' => {
                 result.push(' ');
