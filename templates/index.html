@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Index</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+   <h1>All Recipes</h1> 
+    <ul class="recipe-list">
+        {% for recipe in recipes %}<li><a href="./{{recipe.path}}">{{recipe.name}}</a>
+        {% endfor %}
+    </ul>
+</body>
+</html>
