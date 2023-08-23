@@ -15,6 +15,7 @@ pub struct IndexTemplate {
     pub recipes: Vec<Recipe>,
 }
 
+#[derive(PartialEq, Eq, PartialOrd, Ord)]
 pub struct Recipe {
     pub name: String,
     pub path: String,
