@@ -20,6 +20,7 @@ fn compile_recipes(path: &str) {
 
         recipe_list.push(recipe);
     }
+    recipe_list.sort();
 
     let rendered_index = IndexTemplate {
         recipes: recipe_list,
