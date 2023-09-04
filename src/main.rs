@@ -2,55 +2,65 @@ use comrak::{markdown_to_html, ComrakOptions};
 use std::{fs, path::PathBuf}; // bring trait in scope
 
 pub mod templates;
-use templates::{IndexTemplate, Recipe, RecipeTemplate};
+use templates::{IndexTemplate, Link, RecipeTemplate};
 fn main() {
     if !fs::metadata("./built").is_ok() {
         fs::create_dir("./built").expect("Failed to create built directory");
     }
-    compile_recipes("./recipes");
+
+    render_all("./recipes");
+
     copy_assets();
 }
 
-fn compile_recipes(path: &str) {
+fn render_all(path: &str) {
     let paths = fs::read_dir(path).unwrap();
-    let mut recipe_list: Vec<Recipe> = Vec::new();
+    let mut recipe_list: Vec<Link> = Vec::new();
     for path in paths {
         let path = path.unwrap().path();
-        let recipe = compile_recipe(path);
+        let recipe_link = make_link(&path);
 
-        recipe_list.push(recipe);
+        let rendered_page = compile_recipe(&recipe_link, &path);
+        fs::write(
+            "./built/".to_owned() + &recipe_link.path,
+            &rendered_page,
+        )
+        .unwrap();
+
+        recipe_list.push(recipe_link);
     }
     recipe_list.sort();
 
-    let rendered_index = IndexTemplate {
-        recipes: recipe_list,
-    }
-    .to_string();
-    fs::write("./built/index.html", &rendered_index).unwrap();
+    let index_html = compile_index(recipe_list);
+    fs::write("./built/index.html", &index_html).unwrap();
 }
 
-fn compile_recipe(path: PathBuf) -> Recipe {
-    let content = fs::read_to_string(&path).unwrap();
-    let markdown = markdown_to_html(&content, &ComrakOptions::default());
+fn compile_index(recipe_list: Vec<Link>) -> String {
+    IndexTemplate {
+        recipes: recipe_list,
+    }
+    .to_string()
+}
 
+fn make_link(path: &PathBuf) -> Link {
     let recipe_name = path.file_name().unwrap().to_str().unwrap();
     let nice_name = procees_title_string(recipe_name);
 
-    let rendered_page = RecipeTemplate {
-        name: &nice_name,
-        markdown: &markdown,
-    }
-    .to_string();
-    fs::write(
-        "./built/".to_owned() + recipe_name + ".html",
-        &rendered_page,
-    )
-    .unwrap();
-
-    Recipe {
+    Link {
         name: nice_name,
         path: recipe_name.to_owned() + ".html",
     }
+}
+
+fn compile_recipe(link : &Link, source: &PathBuf) -> String {
+    let content = fs::read_to_string(source).unwrap();
+    let markdown = markdown_to_html(&content, &ComrakOptions::default());
+
+    RecipeTemplate {
+        name: &link.name,
+        markdown: &markdown,
+    }
+    .to_string()
 }
 
 fn copy_assets() {

@@ -12,17 +12,21 @@ pub struct RecipeTemplate<'a> {
 #[derive(Template)]
 #[template(path = "index.html", escape = "none")]
 pub struct IndexTemplate {
-    pub recipes: Vec<Recipe>,
+    pub recipes: Vec<Link>,
 }
 
 #[derive(PartialEq, Eq, PartialOrd, Ord)]
-pub struct Recipe {
+pub struct Link {
     pub name: String,
     pub path: String,
 }
 
-impl fmt::Display for Recipe {
+impl fmt::Display for Link {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         write!(f, "name: {} path: {}", self.name, self.path)
     }
 }
+
+#[derive(Template)]
+#[template(path = "navbar.html", escape = "none")]
+pub struct NavbarTemplate {}
