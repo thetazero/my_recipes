@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+   {% include "navbar.html" %}
    <h1>All Recipes</h1> 
     <ul class="recipe-list">
         {% for recipe in recipes %}<li><a href="./{{recipe.path}}">{{recipe.name}}</a>

@@ -1,11 +1,17 @@
 :root {
   --background-color: hsl(210, 30%, 7%);
-  --background-color-accent: hsl(210, 80%, 30%);
+  --background-color-accent: hsl(210, 30%, 30%);
   --text-color: hsl(150, 30%, 92%);
   --accent-color: hsl(210, 100%, 72%);
+  --navbar-height: 60px;
+  --navbar-padding: 7.5px;
 }
 
 @media only screen and (max-width: 600px) {
+  :root {
+    --navbar-height: 80px;
+    --navbar-padding: 10px;
+  }
   h1 {
     text-align: center;
   }
@@ -18,6 +24,7 @@ body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   margin: 20px;
+  margin-top: calc(var(--navbar-height) + 20px);
 }
 
 a,
@@ -35,7 +42,23 @@ a:visited {
 .navbar {
   list-style-type: none;
   margin: 0;
-  padding: 0;
-  width: 200px;
-  color: var(--background-color-accent);
+  padding: var(--navbar-padding);
+  width: 100vw;
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  --text-size: calc(var(--navbar-height) - calc(var(--navbar-padding) * 2));
+  background-color: var(--background-color-accent);
+  line-height: var(--text-size);
+  height: var(--navbar-height);
+  font-size: var(--text-size);
+  box-sizing: border-box;
+}
+
+.navbar li {
+  color: var(--text-color);
+}
+
+.navbar .home {
+  cursor: pointer;
 }
