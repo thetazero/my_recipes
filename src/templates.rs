@@ -11,8 +11,8 @@ pub struct RecipeTemplate<'a> {
 
 #[derive(Template)]
 #[template(path = "index.html", escape = "none")]
-pub struct IndexTemplate {
-    pub recipes: Vec<Link>,
+pub struct IndexTemplate<'a> {
+    pub recipes: &'a Vec<Link>,
 }
 
 #[derive(PartialEq, Eq, PartialOrd, Ord)]
@@ -30,3 +30,9 @@ impl fmt::Display for Link {
 #[derive(Template)]
 #[template(path = "navbar.html", escape = "none")]
 pub struct NavbarTemplate {}
+
+#[derive(Template)]
+#[template(path = "index.json", escape = "none")]
+pub struct IndexJsonTemplate<'a> {
+    pub recipes: &'a Vec<Link>,
+}
