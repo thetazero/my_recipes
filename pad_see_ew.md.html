@@ -3,13 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
+
     <title>Pad see ew</title>
+
+    <link rel="stylesheet" href="./style.css">
+    <script type="module" src="search.js"></script>
 </head>
 <body>
    <ul class="navbar">
-    <li class="home"><a href=".">R</a></li>
+    <li>
+        <a href="." class="home">R</a>
+        <div id="search-container">
+            <input type="text" id="search" placeholder="search" autocomplete="off">
+        </div>
+    </li>
 </ul>
+<ul id="search-results" display="none"></ul>
    <h1>Pad See Ew</h1>
 <h2>Ingredients</h2>
 <ul>

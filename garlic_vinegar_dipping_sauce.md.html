@@ -3,13 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
+
     <title>Garlic vinegar dipping sauce</title>
+
+    <link rel="stylesheet" href="./style.css">
+    <script type="module" src="search.js"></script>
 </head>
 <body>
    <ul class="navbar">
-    <li class="home"><a href=".">R</a></li>
+    <li>
+        <a href="." class="home">R</a>
+        <div id="search-container">
+            <input type="text" id="search" placeholder="search" autocomplete="off">
+        </div>
+    </li>
 </ul>
+<ul id="search-results" display="none"></ul>
    <h1>Garlic Vinegar Dipping Sauce</h1>
 <p>makes 1/2 cup</p>
 <h2>Ingredients</h2>

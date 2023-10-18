@@ -3,13 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Recipe Index</title>
+
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
    <ul class="navbar">
-    <li class="home"><a href=".">R</a></li>
+    <li>
+        <a href="." class="home">R</a>
+        <div id="search-container">
+            <input type="text" id="search" placeholder="search" autocomplete="off">
+        </div>
+    </li>
 </ul>
+<ul id="search-results" display="none"></ul>
    <h1>All Recipes</h1> 
     <ul class="recipe-list">
         <li><a href="./briam.md.html">Briam</a>
@@ -34,5 +42,6 @@
         <li><a href="./spring_salad.md.html">Spring salad</a>
         
     </ul>
+    <script type="module" src="search.js"></script>
 </body>
 </html>
