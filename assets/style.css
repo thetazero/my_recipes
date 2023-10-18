@@ -1,6 +1,7 @@
 :root {
   --background-color: hsl(210, 30%, 7%);
   --background-color-accent: hsl(210, 30%, 30%);
+  --background-color-accent2: hsl(210, 30%, 20%);
   --text-color: hsl(150, 30%, 92%);
   --accent-color: hsl(210, 100%, 72%);
   --navbar-height: 60px;
@@ -49,16 +50,68 @@ a:visited {
   top: 0px;
   --text-size: calc(var(--navbar-height) - calc(var(--navbar-padding) * 2));
   background-color: var(--background-color-accent);
-  line-height: var(--text-size);
-  height: var(--navbar-height);
   font-size: var(--text-size);
   box-sizing: border-box;
 }
 
 .navbar li {
   color: var(--text-color);
+  height: var(--text-size);
+  line-height: var(--text-size);
+  display: flex;
 }
 
 .navbar .home {
   cursor: pointer;
+  width: var(--text-size);
+  text-align: center;
+  float: left;
+}
+
+#search-container {
+  width: 100%;
+}
+
+#search {
+  margin: 0px;
+  padding-left: 10px;
+  height: var(--text-size);
+  line-height: var(--text-size);
+  box-sizing: border-box;
+  font-size: var(--text-size);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  border: none;
+  outline: none;
+  font-weight: 100;
+  width: 100%;
+}
+
+#search-results {
+  list-style-type: none;
+  margin: 0;
+  padding: var(--navbar-padding);
+  width: 100vw;
+  position: fixed;
+  left: 0px;
+  top: var(--navbar-height);
+  --text-size: calc(var(--navbar-height) - calc(var(--navbar-padding) * 2));
+  background-color: var(--background-color-accent);
+  box-sizing: border-box;
+  border-top: 1px solid var(--accent-color);
+  display: none;
+}
+
+/* first child  */
+#search-results li:first-child {
+  background-color: var(--background-color-accent2);
+}
+
+#search-results li:hover {
+  background-color: var(--background-color-accent2);
+}
+
+#search-results li a {
+  display: block;
+  padding: 5px;
 }

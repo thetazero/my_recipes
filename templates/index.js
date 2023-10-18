@@ -1,4 +1,4 @@
-[
+export default [
     {% for recipe in recipes %}{
         "name": "{{recipe.name}}",
         "path": "{{recipe.path}}"

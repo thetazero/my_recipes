@@ -31,7 +31,7 @@ fn render_all(path: &str) {
     fs::write("./built/index.html", &index_html).unwrap();
 
     let index_json_html = compile_index_json(&recipe_list);
-    fs::write("./built/index.json", &index_json_html).unwrap();
+    fs::write("./built/index.js", &index_json_html).unwrap();
 }
 
 fn compile_index_json(recipe_list: &Vec<Link>) -> String {

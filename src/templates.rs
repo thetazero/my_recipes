@@ -32,7 +32,7 @@ impl fmt::Display for Link {
 pub struct NavbarTemplate {}
 
 #[derive(Template)]
-#[template(path = "index.json", escape = "none")]
+#[template(path = "index.js", escape = "none")]
 pub struct IndexJsonTemplate<'a> {
     pub recipes: &'a Vec<Link>,
 }
