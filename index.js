@@ -64,10 +64,6 @@ export default [
         "path": "pad_see_ew.md.html"
     },
     {
-        "name": "Pepper casserole",
-        "path": "pepper_casserole.md.html"
-    },
-    {
         "name": "Plov",
         "path": "plov.md.html"
     },
