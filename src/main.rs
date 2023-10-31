@@ -2,7 +2,7 @@ use comrak::{markdown_to_html, ComrakOptions};
 use std::{fs, path::PathBuf}; // bring trait in scope
 
 pub mod templates;
-use templates::{IndexTemplate, Link, RecipeTemplate};
+use templates::{IndexJsonTemplate, IndexTemplate, Link, RecipeTemplate};
 fn main() {
     if !fs::metadata("./built").is_ok() {
         fs::create_dir("./built").expect("Failed to create built directory");
@@ -21,21 +21,27 @@ fn render_all(path: &str) {
         let recipe_link = make_link(&path);
 
         let rendered_page = compile_recipe(&recipe_link, &path);
-        fs::write(
-            "./built/".to_owned() + &recipe_link.path,
-            &rendered_page,
-        )
-        .unwrap();
+        fs::write("./built/".to_owned() + &recipe_link.path, &rendered_page).unwrap();
 
         recipe_list.push(recipe_link);
     }
     recipe_list.sort();
 
-    let index_html = compile_index(recipe_list);
+    let index_html = compile_index(&recipe_list);
     fs::write("./built/index.html", &index_html).unwrap();
+
+    let index_json_html = compile_index_json(&recipe_list);
+    fs::write("./built/index.js", &index_json_html).unwrap();
 }
 
-fn compile_index(recipe_list: Vec<Link>) -> String {
+fn compile_index_json(recipe_list: &Vec<Link>) -> String {
+    IndexJsonTemplate {
+        recipes: recipe_list,
+    }
+    .to_string()
+}
+
+fn compile_index(recipe_list: &Vec<Link>) -> String {
     IndexTemplate {
         recipes: recipe_list,
     }
@@ -52,7 +58,7 @@ fn make_link(path: &PathBuf) -> Link {
     }
 }
 
-fn compile_recipe(link : &Link, source: &PathBuf) -> String {
+fn compile_recipe(link: &Link, source: &PathBuf) -> String {
     let content = fs::read_to_string(source).unwrap();
     let markdown = markdown_to_html(&content, &ComrakOptions::default());
 
