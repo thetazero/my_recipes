@@ -68,6 +68,10 @@ export default [
         "path": "plov.md.html"
     },
     {
+        "name": "Pork tenderloin",
+        "path": "pork_tenderloin.md.html"
+    },
+    {
         "name": "Spinach and cheese bourekas",
         "path": "spinach_and_cheese_bourekas.md.html"
     },
