@@ -12,6 +12,10 @@ export default [
         "path": "caper_vinegarette.md.html"
     },
     {
+        "name": "Cheese boureka",
+        "path": "cheese_boureka.md.html"
+    },
+    {
         "name": "Chicken chow mein",
         "path": "chicken_chow_mein.md.html"
     },
