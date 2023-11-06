@@ -84,6 +84,10 @@ export default [
         "path": "spring_salad.md.html"
     },
     {
+        "name": "Squash soup",
+        "path": "squash_soup.md.html"
+    },
+    {
         "name": "Stuffed peppers",
         "path": "stuffed_peppers.md.html"
     }
