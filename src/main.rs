@@ -1,8 +1,10 @@
-use comrak::{markdown_to_html, ComrakOptions};
 use std::{fs, path::PathBuf}; // bring trait in scope
 
 pub mod templates;
 use templates::{IndexJsonTemplate, IndexTemplate, Link, RecipeTemplate};
+
+pub mod units;
+use units::recipe_markdown_to_html;
 fn main() {
     if !fs::metadata("./built").is_ok() {
         fs::create_dir("./built").expect("Failed to create built directory");
@@ -60,7 +62,7 @@ fn make_link(path: &PathBuf) -> Link {
 
 fn compile_recipe(link: &Link, source: &PathBuf) -> String {
     let content = fs::read_to_string(source).unwrap();
-    let markdown = markdown_to_html(&content, &ComrakOptions::default());
+    let markdown = recipe_markdown_to_html(content);
 
     RecipeTemplate {
         name: &link.name,
