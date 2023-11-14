@@ -60,6 +60,10 @@ export default [
         "path": "meatballs.md.html"
     },
     {
+        "name": "Mediterranean grain bowl",
+        "path": "mediterranean_grain_bowl.md.html"
+    },
+    {
         "name": "Moussaka",
         "path": "moussaka.md.html"
     },
