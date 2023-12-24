@@ -12,7 +12,11 @@ fn main() {
 
     render_all("./recipes");
 
-    copy_assets();
+    copy_folder("./assets/", "./built/");
+    if !fs::metadata("./built/images").is_ok() {
+        fs::create_dir("./built/images").expect("Failed to create images directory");
+    }
+    copy_folder("./images/", "./built/images/");
 }
 
 fn render_all(path: &str) {
@@ -20,6 +24,9 @@ fn render_all(path: &str) {
     let mut recipe_list: Vec<Link> = Vec::new();
     for path in paths {
         let path = path.unwrap().path();
+        if !is_valid_recipe_path(&path) {
+            continue;
+        }
         let recipe_link = make_link(&path);
 
         let rendered_page = compile_recipe(&recipe_link, &path);
@@ -34,6 +41,11 @@ fn render_all(path: &str) {
 
     let index_json_html = compile_index_json(&recipe_list);
     fs::write("./built/index.js", &index_json_html).unwrap();
+}
+
+fn is_valid_recipe_path(path: &PathBuf) -> bool {
+    let file_name = path.file_name().unwrap().to_str().unwrap();
+    file_name.ends_with(".md")
 }
 
 fn compile_index_json(recipe_list: &Vec<Link>) -> String {
@@ -71,12 +83,12 @@ fn compile_recipe(link: &Link, source: &PathBuf) -> String {
     .to_string()
 }
 
-fn copy_assets() {
-    let paths = fs::read_dir("./assets").unwrap();
+fn copy_folder(from: &str, to: &str) {
+    let paths = fs::read_dir(from).unwrap();
     for path in paths {
         let path = path.unwrap().path();
         let file_name = path.file_name().unwrap().to_str().unwrap();
-        fs::copy(&path, "./built/".to_owned() + file_name).expect("Failed to copy asset");
+        fs::copy(&path, to.to_owned() + file_name).expect("Failed to copy asset");
     }
 }
 
