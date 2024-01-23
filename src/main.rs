@@ -16,7 +16,9 @@ fn main() {
     if !fs::metadata("./built/images").is_ok() {
         fs::create_dir("./built/images").expect("Failed to create images directory");
     }
-    copy_folder("./images/", "./built/images/");
+    if fs::metadata("./images").is_ok() {
+        copy_folder("./images/", "./built/images/");
+    }
 }
 
 fn render_all(path: &str) {
