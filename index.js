@@ -44,6 +44,10 @@ export default [
         "path": "garlic_vinegar_dipping_sauce.md.html"
     },
     {
+        "name": "Hot chocolate",
+        "path": "hot_chocolate.md.html"
+    },
+    {
         "name": "Hummus",
         "path": "hummus.md.html"
     },
@@ -94,5 +98,13 @@ export default [
     {
         "name": "Stuffed peppers",
         "path": "stuffed_peppers.md.html"
+    },
+    {
+        "name": "Syrniki",
+        "path": "syrniki.md.html"
+    },
+    {
+        "name": "Whipped cream",
+        "path": "whipped_cream.md.html"
     }
 ]
