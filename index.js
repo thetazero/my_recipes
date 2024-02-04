@@ -72,6 +72,10 @@ export default [
         "path": "moussaka.md.html"
     },
     {
+        "name": "Olive crown loaf",
+        "path": "olive_crown_loaf.md.html"
+    },
+    {
         "name": "Pad see ew",
         "path": "pad_see_ew.md.html"
     },
