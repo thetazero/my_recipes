@@ -80,6 +80,10 @@ export default [
         "path": "pad_see_ew.md.html"
     },
     {
+        "name": "Pizza dough",
+        "path": "pizza_dough.md.html"
+    },
+    {
         "name": "Plov",
         "path": "plov.md.html"
     },
