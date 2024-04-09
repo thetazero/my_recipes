@@ -3,47 +3,57 @@
 ## Ingredients
 
 ### Bowl
-- `1 can chickpeas`
-- `1 zuchinni` sliced
-- `1/2 cucumber` diced
+- `1 cucumber` diced
 - `1 block feta cheese` crumbled
-- `1 Red Onion` diced
-- `1 Bell Pepper` diced
-- `Tzatziki`
-- `Greek Lemon Chicken`
-- `1.5 cups farro` (or other grain of choice)
+- `Grape tomatoes` sliced
+- Tzatziki
+- Mediterranean Chicken
+- Quinoa
+- Hummus
+Optional
+- `1 red onion` diced
+- `1 can chickpeas`
+- `Olives`
+
 
 ### Chicken
-- `5 boneless chicken thighs`
-- `1/3 cup olive oil`
-- `1/4 cup lemon juice`
-- `4 cloves minced garlic`
+- `3lb chicken breasts`
+- `3 Tbsp olive oil`
+- `1.5 lemons` juiced
+- `1 Tbsp lemon zest`
 - `1 Tbsp dried oregano`
-- `2 tsp dried thyme`
-- `2 tsp dijon mustard` (I put in some amount of ground mustard instead)
-- `2 tsp salt`
-- `1 tsp pepper`
+- `1 Tbsp paprika`
+- `0.5 Tbsp garlic powder`
+- `1 Tbsp salt`
+- `0.5 Tbsp pepper`
 
-### Tzatziki (Should probably make more than this)
-- `1/2 cucumber` diced
-- `1 cup greek yogurt`
-- `1 Tbsp lemon juice`
-- `1/2 Tbsp olive oil`
-- `1 clove garlic` finely minced
-- some salt
-- `1 tsp dried dill`
+### Tzatziki
+- `1/2 cucumber` shredded
+- `2 cup greek yogurt`
+- `2 Tbsp lemon juice`
+- `2 Tbsp olive oil`
+- `1 tsp garlic powder`
+- `1 tsp salt`
+- `2 Tbsp dried dill`
+- some pepper
+
+### Quinoa
+- `2 cups quinoa`
+- `4 cups chicken broth` (or water)
+- `2 tsp butter`
+- `0.5 tsp salt`
 
 ## Instructions
 
 ### Chicken
-1. Mix everything but chicken together in a bowl, set chicken to marinade for a few hours
-1. Place chicken onto baking tray (definitely line) and pour remaining marinade on top
+1. Cut chicken into cubes. Mix everything together in a bowl
 1. Cook chicken in oven at 400 until it hits an internal temperature above 165
 
 ### Tzatziki
 1. Mix everything in bowl
 
+### Quinoa
+1. Cook in rice cooker
+
 ### Assembly
-1. Saute bell pepper and zuchini
-1. Cook grain in rice cooker
-1. Place chicken, vegetables, grain, chickpeas and sauce in container
+1. Add all of the things together
