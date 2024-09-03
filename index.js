@@ -1,5 +1,9 @@
 export default [
     {
+        "name": "Baby bok choy",
+        "path": "baby_bok_choy.md.html"
+    },
+    {
         "name": "Briam",
         "path": "briam.md.html"
     },
