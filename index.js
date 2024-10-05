@@ -120,6 +120,10 @@ export default [
         "path": "syrniki.md.html"
     },
     {
+        "name": "Taco salad",
+        "path": "taco_salad.md.html"
+    },
+    {
         "name": "Whipped cream",
         "path": "whipped_cream.md.html"
     }
